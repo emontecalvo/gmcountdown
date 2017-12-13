@@ -29,8 +29,10 @@ class clock extends React.Component {
 				      }}
 				    >
 
-	      <div className="day1input"><i className="fa fa-clock-o"></i>start time<input type="time" step="1" name="starttime" /></div>
-        <div className="day1input"><i className="fa fa-clock-o"></i>end time<input type="time" step="1" name="endtime" /></div>
+	      <div className="timeInput"><i className="fa fa-clock-o"></i>start time<input type="time" step="1" name="starttime" /></div>
+        <br />
+        <div className="timeInput"><i className="fa fa-clock-o"></i>end time<input type="time" step="1" name="endtime" /></div>
+	    	<br />
 	    <button type="submit">
 	      start countdown
 	    </button>

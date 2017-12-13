@@ -33,7 +33,7 @@ class Home extends React.Component {
       this.props.dispatch(actions.stop_time());
     }
 
-    return countdown;
+    return Math.floor(countdown);
   }
 
   render() {
@@ -47,30 +47,35 @@ class Home extends React.Component {
 
     if (this.props.isTimeLeftShow) {
       return (
-        <div>
-          <h1>Going Merry</h1>
-          <h2>...countdown coding challenge</h2>
-          <Clock />
-          <Timer />
-          <p>{Date.now()}</p>
-          <p>seconds to go: {this.myTimeUpdate(this.props.timeLeft) }</p>
+        <div className="phoneDiv">
+          <div className="contentDiv">
+            <h1>Going Merry:</h1>
+            <h2>countdown challenge</h2>
+            <Clock />
+            <Timer />
+            <p>Seconds left to go: {this.myTimeUpdate(this.props.timeLeft) }</p>
+          </div>
         </div>
       )
     } else if (this.props.isOver) {
       return (
-        <div>
-          <h1>Going Merry</h1>
-          <h2>...countdown coding challenge</h2>
-          <p>TIME'S UP!</p>
-          <button onClick={() => this.startOver()}>set a new timer?</button>
+        <div className="phoneDiv">
+          <div className="contentDiv">
+            <h1>Going Merry:</h1>
+            <h2>countdown challenge</h2>
+            <p>TIME'S UP!</p>
+            <button onClick={() => this.startOver()}>set a new timer?</button>
+          </div>
         </div>
       )
     } else {
       return (
-        <div>
-          <h1>Going Merry</h1>
-          <h2>...countdown coding challenge</h2>
-          <Clock />
+        <div className="phoneDiv">
+          <div className="contentDiv">
+            <h1>Going Merry:</h1>
+            <h2>countdown challenge</h2>
+            <Clock />
+          </div>
       </div>
       )
     }
