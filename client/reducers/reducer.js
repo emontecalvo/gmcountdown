@@ -39,7 +39,9 @@ const reducer = (state, action) => {
 
 		if (timeL <= 0) {
 			return alert("Your ending time must be greater than your start time");
-		} else {
+		} else if (isNaN(timeL)) {
+			return alert("Please use the time slots to select a start & end time");
+		}else {
 			return {...state, timeLeft: timeL, dateTimeNow: dtn, isTimeLeftShow: true }
 		}
 	}

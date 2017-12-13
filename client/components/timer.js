@@ -11,7 +11,7 @@ class Timer extends React.Component {
   render() { 
     return (
         <div className="Day1Div">
-          <div><p>Countdown timer set for: {this.props.timeLeft} seconds</p></div>
+          <div><p>Timer set for: {this.props.timeLeft} seconds</p></div>
         </div>
     )
   }

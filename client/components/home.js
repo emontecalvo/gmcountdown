@@ -63,7 +63,7 @@ class Home extends React.Component {
           <div className="contentDiv">
             <h1>Going Merry:</h1>
             <h2>countdown challenge</h2>
-            <p>TIME'S UP!</p>
+            <p className="timeup">TIME'S UP!</p>
             <button onClick={() => this.startOver()}>set a new timer?</button>
           </div>
         </div>

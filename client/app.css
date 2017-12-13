@@ -9,12 +9,24 @@ h1, h2, h3 {
   font-family: 'Lato';
   margin: 0;
   padding: 0;
-  padding-bottom: 20px;
   text-align: center;
+}
+
+h1 {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+h2 {
+  padding-bottom: 40px;
 }
 
 button {
   cursor: pointer;
+}
+
+p {
+  text-align: center;
 }
 
 .phoneDiv {
@@ -45,6 +57,7 @@ button {
 }
 
 .contentDiv input {
+  padding-left: 10px;
   border: 0;
   outline: 0;
   background: transparent;
@@ -83,6 +96,10 @@ button {
 .timeInput:hover i {
   opacity: 1;
   transition: opacity .5s ease;
+}
+
+.timeup {
+  font-size: 30px;
 }
 
 
