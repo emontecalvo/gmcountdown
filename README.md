@@ -1,7 +1,7 @@
 
 # Going Merry Countdown
 
-![alt tag](./images/clock.png "Going Merry Coding Challenge")
+![Alt text](./clock.png?raw=true "CatFacts")
 
 ### Setup Instructions:
 
