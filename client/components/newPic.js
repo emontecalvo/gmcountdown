@@ -56,6 +56,7 @@ export default connect((state, props) => ({
   picFact: state.picFact,
   starttime: state.starttime,
   endtime: state.endtime,
+  timeLeft: state.timeLeft,
   picCombo: state.picCombo,
   showFacts: state.showFacts,
   comboToEdit: state.comboToEdit,
