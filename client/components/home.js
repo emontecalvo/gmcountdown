@@ -49,11 +49,11 @@ class Home extends React.Component {
     // return timeL;
 
     //how many milieconds since you clicked the button
-    let a = Date.now() - this.props.dateTimeNow;
+    let a = (Date.now() - this.props.dateTimeNow) / 1000;
     // console.log ("a is : ", a);
 
     // subtact this from whatever timeLeft is that will countdown
-    let b = a - this.props.timeLeft;
+    let b = this.props.timeLeft - a;
 
     // time in minutes
     let bmin = Math.floor(b / 60000);
@@ -62,15 +62,20 @@ class Home extends React.Component {
     // let b2 = Math.floor((b % 60000) / 1000).toFixed(0);
     let b2 = Math.floor((b % 60000) / 1000);
 
+    if (Math.floor(b) <= 0) {
+      this.props.dispatch(actions.stop_time());
+    }
+
     if (b2 == this.props.timeLeft) {
       // console.log("IT'S HERE");
       // this.stopTimeShow();
       this.props.dispatch(actions.stop_time());
     }
 
-    return (b2 == 60 ? (bmin+1) + ":00" : bmin + ":" + (b2 < 10 ? "0" : "") + b2);
+    // return (b2 == 60 ? (bmin+1) + ":00" : bmin + ":" + (b2 < 10 ? "0" : "") + b2);
 
-    // return b2
+    // return b2;
+    return b;
   }
 
   render() {
