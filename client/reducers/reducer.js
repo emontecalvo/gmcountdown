@@ -7,6 +7,7 @@ const initialState = {
 	endtime: null,
 	dateTimeNow: null,
 	isTimeLeftShow: false,
+	isOver: false,
 	timeLeft: 0,
 	picCombo: [],
 	showFacts: false,
@@ -29,7 +30,7 @@ const reducer = (state, action) => {
 	}
 
 	if (action.type === 'STOP_TIME') {
-		return {...state, isTimeLeftShow: false}
+		return {...state, isTimeLeftShow: false, isOver: true}
 	}
 
 	if (action.type === 'ADD_PIC') {

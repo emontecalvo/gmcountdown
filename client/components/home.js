@@ -39,13 +39,6 @@ class Home extends React.Component {
   //   }
   // }
 
-  buttonCombo() {
-    this.props.dispatch(actions.make_combo());
-  }
-
-  factSort() {
-    this.props.dispatch(actions.sort_facts());
-  }
 
   // stopTimeShow() {
   //   this.props.dispatch(actions.stop_time());
@@ -62,6 +55,9 @@ class Home extends React.Component {
     // subtact this from whatever timeLeft is that will countdown
     let b = a - this.props.timeLeft;
 
+    // time in minutes
+    let bmin = Math.floor(b / 60000);
+
     // time in seconds
     // let b2 = Math.floor((b % 60000) / 1000).toFixed(0);
     let b2 = Math.floor((b % 60000) / 1000);
@@ -72,7 +68,9 @@ class Home extends React.Component {
       this.props.dispatch(actions.stop_time());
     }
 
-    return b2
+    return (b2 == 60 ? (bmin+1) + ":00" : bmin + ":" + (b2 < 10 ? "0" : "") + b2);
+
+    // return b2
   }
 
   render() {
@@ -83,23 +81,32 @@ class Home extends React.Component {
       setTimeout(this.forceUpdate.bind(this), 1000);
     }
 
+
     if (this.props.isTimeLeftShow) {
-      return <div>
+      return (
+        <div>
         <h3>Going Merry Countdown</h3>
         <h4>NEW PIC </h4>
         <NewPic />
-        <button className="btn" onClick={ () => this.buttonCombo() }>Click me to see some cat factoids!</button>
         <Timer />
         <p>{Date.now()}</p>
         <p>seconds to go: {this.myTimeUpdate(this.props.timeLeft) }</p>
       </div>
+      )
+    } else if (this.props.isOver) {
+      return (
+        <div>
+        <p>TIME'S UP!</p>
+      </div>
+      )
     } else {
-      return <div>
+      return (
+        <div>
         <h3>Going Merry Countdown</h3>
         <h4>NEW PIC </h4>
         <NewPic />
       </div>
-  
+      )
     }
   }
 
@@ -119,5 +126,6 @@ export default connect((state, props) => ({
   comboToAdd: state.comboToAdd,
   showEdit2: state.showEdit2,
   dateTimeNow: state.dateTimeNow,
-  isTimeLeftShow: state.isTimeLeftShow
+  isTimeLeftShow: state.isTimeLeftShow,
+  isOver: state.isOver,
 }))(Home);
