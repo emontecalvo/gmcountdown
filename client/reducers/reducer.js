@@ -5,7 +5,8 @@ const initialState = {
 	picFact: null,
 	startime: null,
 	endtime: null,
-	timeLeft: null,
+	dateTimeNow: null,
+	timeLeft: 0,
 	picCombo: [],
 	showFacts: false,
 	comboToEdit: '',
@@ -33,38 +34,26 @@ const reducer = (state, action) => {
 			newCombo.push(state.picCombo[i]);
 		}
 
-		let text = {url: action.data[0]}
-		let fact = action.data[1];
-		let starttime = action.data[2];
-		let endtime = action.data[3];
-		newCombo.unshift([text, fact, starttime, endtime]);
+		let starttime = action.data[0];
+		let endtime = action.data[1];
+		newCombo.unshift([starttime, endtime]);
 		console.log("starttime", starttime);
-		console.log("fact", text);
-		console.log("pic", fact);
 		console.log("endtime", endtime);
-
-		// let timeRemaining = endtime - starttime;
-		// console.log("***** Time Remaining:", timeRemaining);
 
 		var a = starttime.split(':');
 		var b = endtime.split(':');
-		// var s = 0;
-		// var m = 1;
 
-		// while (p.length > 0) {
-		// 	s += m * parseInt(p.pop(), 10);
-  //     m *= 60;
-		// }
-	var startSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
-	var endSeconds = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
-	var timeLeft = endSeconds - startSeconds;
+		var startSeconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+		var endSeconds = (+b[0]) * 60 * 60 + (+b[1]) * 60 + (+b[2]);
+		var timeL = endSeconds - startSeconds;
 
-	console.log("* * * * * * start time", startSeconds);
-	console.log("* * * * * * end time", endSeconds);
-	console.log("time left in seconds! :", timeLeft);
+		console.log("* * * * * * start time", startSeconds);
+		console.log("* * * * * * end time", endSeconds);
+		console.log("time left in seconds! :", timeL);
 
+		let dtn = Date.now();
 
-		return {...state, picCombo: newCombo}
+		return {...state, picCombo: newCombo, timeLeft: timeL, dateTimeNow: dtn }
 	}
 
 	if (action.type === 'MAKE_COMBO') {
