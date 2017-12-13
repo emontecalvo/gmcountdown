@@ -6,6 +6,7 @@ const initialState = {
 	startime: null,
 	endtime: null,
 	dateTimeNow: null,
+	isTimeLeftShow: false,
 	timeLeft: 0,
 	picCombo: [],
 	showFacts: false,
@@ -25,6 +26,10 @@ const reducer = (state, action) => {
 
 	if (action.type === 'UPDATE_FACT') {
 		return {...state, picFact: action.data}
+	}
+
+	if (action.type === 'STOP_TIME') {
+		return {...state, isTimeLeftShow: false}
 	}
 
 	if (action.type === 'ADD_PIC') {
@@ -53,7 +58,7 @@ const reducer = (state, action) => {
 
 		let dtn = Date.now();
 
-		return {...state, picCombo: newCombo, timeLeft: timeL, dateTimeNow: dtn }
+		return {...state, picCombo: newCombo, timeLeft: timeL, dateTimeNow: dtn, isTimeLeftShow: true }
 	}
 
 	if (action.type === 'MAKE_COMBO') {

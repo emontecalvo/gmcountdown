@@ -23,6 +23,7 @@ class Home extends React.Component {
     var a = this.props.timeLeft - 1;
     this.setState({ timeLeft: a});
     console.log(a);
+    setTimeout(this.forceUpdate.bind(this), 1000);
   }
 
 
@@ -46,37 +47,60 @@ class Home extends React.Component {
     this.props.dispatch(actions.sort_facts());
   }
 
+  // stopTimeShow() {
+  //   this.props.dispatch(actions.stop_time());
+  // }
+
   myTimeUpdate(startTime) {
     // let timeL = this.props.timeLeft -= 1;
     // return timeL;
 
     //how many milieconds since you clicked the button
-    let a = Date.now() - this.props.dateTimeNow 
+    let a = Date.now() - this.props.dateTimeNow;
+    // console.log ("a is : ", a);
 
     // subtact this from whatever timeLeft is that will countdown
     let b = a - this.props.timeLeft;
 
-    return b;
+    // time in seconds
+    // let b2 = Math.floor((b % 60000) / 1000).toFixed(0);
+    let b2 = Math.floor((b % 60000) / 1000);
+
+    if (b2 == this.props.timeLeft) {
+      // console.log("IT'S HERE");
+      // this.stopTimeShow();
+      this.props.dispatch(actions.stop_time());
+    }
+
+    return b2
   }
 
   render() {
  
     var startTime = Date.now();
 
-    setTimeout(this.forceUpdate.bind(this), 1000);
-    // setTimeout(this.forceUpdate.bind(this), 1000);
+    if (this.props.isTimeLeftShow) {
+      setTimeout(this.forceUpdate.bind(this), 1000);
+    }
 
-    return (
-      <div>
+    if (this.props.isTimeLeftShow) {
+      return <div>
         <h3>Going Merry Countdown</h3>
         <h4>NEW PIC </h4>
         <NewPic />
         <button className="btn" onClick={ () => this.buttonCombo() }>Click me to see some cat factoids!</button>
         <Timer />
         <p>{Date.now()}</p>
-        <p>{this.myTimeUpdate(this.props.timeLeft)}</p>
+        <p>seconds to go: {this.myTimeUpdate(this.props.timeLeft) }</p>
       </div>
-    )
+    } else {
+      return <div>
+        <h3>Going Merry Countdown</h3>
+        <h4>NEW PIC </h4>
+        <NewPic />
+      </div>
+  
+    }
   }
 
 }
@@ -94,5 +118,6 @@ export default connect((state, props) => ({
   comboToEdit: state.comboToEdit,
   comboToAdd: state.comboToAdd,
   showEdit2: state.showEdit2,
-  dateTimeNow: state.dateTimeNow
+  dateTimeNow: state.dateTimeNow,
+  isTimeLeftShow: state.isTimeLeftShow
 }))(Home);

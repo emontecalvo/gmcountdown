@@ -10,6 +10,11 @@ const update_fact = data => ({
 	data
 })
 
+export const stop_time = data => ({
+	type: 'STOP_TIME',
+	data
+})
+
 export const make_combo = data => ({
 	type: 'MAKE_COMBO',
 	data

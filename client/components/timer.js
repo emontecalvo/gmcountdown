@@ -16,7 +16,7 @@ class Timer extends React.Component {
   render() { 
     return (
         <div className="Day1Div">
-          <div><p>{this.props.timeLeft}</p></div>
+          <div><p>Countdown timer set for: {this.props.timeLeft}</p></div>
         </div>
     )
   }
@@ -32,5 +32,7 @@ export default connect((state, props) => ({
   showFacts: state.showFacts,
   comboToEdit: state.comboToEdit,
   comboToAdd: state.comboToAdd,
-  showEdit2: state.showEdit2
+  showEdit2: state.showEdit2,
+  dateTimeNow: state.dateTimeNow,
+  isTimeLeftShow: state.isTimeLeftShow
 }))(Timer);
