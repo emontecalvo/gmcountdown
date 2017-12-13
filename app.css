@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+  background-color: #dbe3f9;
+  font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Lato';
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+h2 {
+  padding-bottom: 40px;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  text-align: center;
+}
+
+.phoneDiv {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 360px;
+  height: 640px;
+  background-image:url('./clock.png');
+  background-position:center;
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+.contentDiv {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 500px;
+  background-color: white;
+}
+
+.contentDiv input {
+  padding-left: 10px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 165px;
+  height: 40px;
+}
+
+.contentDiv i {
+  width: 20px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.contentDiv button {
+  font-size: 20px;
+  margin-left: 15px;
+  width: 270px;
+  height: 50px;
+}
+
+.contentDiv button:hover {
+  border: none;
+  background-color: gainsboro;
+  transition: background-color 1s ease;
+  color: white;
+}
+
+.timeInput {
+   border-bottom: 1px solid black;
+}
+
+.timeInput i {
+  opacity: .5;
+}
+
+.timeInput:hover i {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+.timeup {
+  font-size: 30px;
+}
+
+
