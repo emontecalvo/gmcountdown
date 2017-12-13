@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/actions';
 
 
-class newPic extends React.Component {
+class clock extends React.Component {
 
 	constructor(props) {
         super(props);
-        this.addPic = this.addPic.bind(this);
+        this.addTime = this.addTime.bind(this);
 	}
 
-	addPic(comboToAdd) {
-		this.props.dispatch(actions.add_pic(comboToAdd));
+	addTime(timesToAdd) {
+		this.props.dispatch(actions.add_time(timesToAdd));
 	}
 
 	render() {
@@ -23,7 +23,7 @@ class newPic extends React.Component {
 				        e.preventDefault()
 				        let starttime = e.target.starttime.value
 				        let endtime = e.target.endtime.value
-				        this.addPic([starttime, endtime])
+				        this.addTime([starttime, endtime])
 				        e.target.starttime.value = ''
 				        e.target.endtime.value = ''
 				      }}
@@ -44,17 +44,13 @@ class newPic extends React.Component {
 
 
 export default connect((state, props) => ({
-  picText: state.picText,
-  picFact: state.picFact,
   starttime: state.starttime,
   endtime: state.endtime,
   timeLeft: state.timeLeft,
-  picCombo: state.picCombo,
-  showFacts: state.showFacts,
-  comboToEdit: state.comboToEdit,
-  comboToAdd: state.comboToAdd,
-  showEdit2: state.showEdit2
-}))(newPic);
+  dateTimeNow: state.dateTimeNow,
+  isTimeLeftShow: state.isTimeLeftShow,
+  isOver: state.isOver,
+}))(clock);
 
 
 
