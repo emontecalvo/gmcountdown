@@ -33,6 +33,10 @@ const reducer = (state, action) => {
 		return {...state, isTimeLeftShow: false, isOver: true}
 	}
 
+	if (action.type === 'START_OVER') {
+		return {...state, isTimeLeftShow: false, isOver: false}
+	}
+
 	if (action.type === 'ADD_PIC') {
 		let newCombo = [];
 
@@ -59,7 +63,11 @@ const reducer = (state, action) => {
 
 		let dtn = Date.now();
 
-		return {...state, picCombo: newCombo, timeLeft: timeL, dateTimeNow: dtn, isTimeLeftShow: true }
+		if (timeL <= 0) {
+			return alert("Your ending time must be greater than your start time");
+		} else {
+			return {...state, picCombo: newCombo, timeLeft: timeL, dateTimeNow: dtn, isTimeLeftShow: true }
+		}
 	}
 
 	if (action.type === 'MAKE_COMBO') {

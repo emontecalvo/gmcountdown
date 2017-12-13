@@ -26,6 +26,10 @@ class Home extends React.Component {
     setTimeout(this.forceUpdate.bind(this), 1000);
   }
 
+  startOver() {
+    this.props.dispatch(actions.start_over());
+  }
+
 
 
   // componentDidMount() {
@@ -102,6 +106,7 @@ class Home extends React.Component {
       return (
         <div>
         <p>TIME'S UP!</p>
+        <button onClick={() => this.startOver()}>set a new timer?</button>
       </div>
       )
     } else {
