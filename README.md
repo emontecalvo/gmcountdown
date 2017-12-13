@@ -1,7 +1,7 @@
 
 # Going Merry Countdown
 
-![Alt text](./clock.png?raw=true "CatFacts")
+![Alt text](./client/images/clock.png?raw=true "Going Merry")
 
 ### Setup Instructions:
 
